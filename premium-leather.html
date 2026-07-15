@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Leather Collection | StepStyle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* ============================================================
+           PREMIUM LEATHER COLLECTION — COMPLETE SECTION
+           ============================================================ */
+
+        /* ---- Root Variables (extended) ---- */
+        :root {
+            --lc-gold: #C9A84C;
+            --lc-gold-light: #e8d5a3;
+            --lc-gold-dark: #b8973e;
+            --lc-gold-glow: rgba(201, 168, 76, 0.25);
+            --lc-black: #0a0a0a;
+            --lc-dark: #1a1a1a;
+            --lc-charcoal: #2c2c2c;
+            --lc-white: #ffffff;
+            --lc-off-white: #f8f6f2;
+            --lc-gray: #888888;
+            --lc-light-gray: #e0ddd8;
+            --lc-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --lc-shadow-hover: 0 24px 72px rgba(0, 0, 0, 0.20);
+            --lc-radius: 18px;
+            --lc-radius-sm: 10px;
+            --lc-transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* ---- Section Container ---- */
+        .leather-collection {
+            position: relative;
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 80px 40px 60px;
+            background: var(--lc-off-white);
+            overflow: hidden;
+        }
+
+        /* ---- Background Accents ---- */
+        .lc-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .lc-bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.04;
+        }
+
+        .lc-bg-shape--1 {
+            width: 600px;
+            height: 600px;
+            background: var(--lc-gold);
+            top: -200px;
+            right: -150px;
+            animation: lcFloat 30s ease-in-out infinite alternate;
+        }
+
+        .lc-bg-shape--2 {
+            width: 400px;
+            height: 400px;
+            background: var(--lc-gold-dark);
+            bottom: -150px;
+            left: -100px;
+            animation: lcFloat 35s ease-in-out infinite alternate-reverse;
+        }
+
+        .lc-bg-shape--3 {
+            width: 250px;
+            height: 250px;
+            background: var(--lc-gold-light);
+            top: 40%;
+            left: 20%;
+            opacity: 0.025;
+            animation: lcFloat 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes lcFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(60px, -40px) scale(1.15);
+            }
+        }
+
+        /* ---- Section Header ---- */
+        .lc-header {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .lc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 22px 6px 18px;
+            background: rgba(201, 168, 76, 0.08);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: var(--lc-gold);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            backdrop-filter: blur(4px);
+        }
+
+        .lc-badge-icon {
+            font-size: 12px;
+        }
+
+        .lc-badge-line {
+            width: 24px;
+            height: 1px;
+            background: var(--lc-gold);
+            opacity: 0.3;
+        }
+
+        .lc-title {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: clamp(36px, 4.8vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--lc-black);
+            margin-bottom: 12px;
+            line-height: 1.08;
+        }
+
+        .lc-title span {
+            color: var(--lc-gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .lc-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--lc-gold), var(--lc-gold-light), var(--lc-gold));
+            border-radius: 2px;
+            opacity: 0.4;
+        }
+
+        .lc-subtitle {
+            max-width: 620px;
+            margin: 0 auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--lc-charcoal);
+            font-weight: 300;
+            letter-spacing: 0.2px;
+        }
+
+        /* ---- Collection Grid ---- */
+        .lc-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 72px;
+        }
+
+        .lc-card {
+            position: relative;
+            border-radius: var(--lc-radius);
+            overflow: hidden;
+            background: var(--lc-white);
+            box-shadow: var(--lc-shadow);
+            transition: var(--lc-transition);
+            cursor: pointer;
+            will-change: transform, box-shadow;
+        }
+
+        .lc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--lc-shadow-hover);
+        }
+
+        .lc-card-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 85%;
+            overflow: hidden;
+            background: var(--lc-off-white);
+        }
+
+        .lc-card-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .lc-card:hover .lc-card-image img {
+            transform: scale(1.06);
+        }
+
+        .lc-card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 3;
+            padding: 4px 14px;
+            background: var(--lc-gold);
+            color: var(--lc-white);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-radius: 30px;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.3);
+        }
+
+        .lc-card-badge--dark {
+            background: var(--lc-black);
+            color: var(--lc-white);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .lc-card-body {
+            padding: 20px 22px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .lc-card-name {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--lc-black);
+            transition: var(--lc-transition);
+            line-height: 1.2;
+        }
+
+        .lc-card:hover .lc-card-name {
+            color: var(--lc-gold);
+        }
+
+        .lc-card-desc {
+            font-size: 14px;
+            color: var(--lc-gray);
+            line-height: 1.5;
+            margin-bottom: 2px;
+        }
+
+        .lc-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--lc-black);
+            transition: var(--lc-transition);
+            margin-top: 6px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+            align-self: flex-start;
+            font-family: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lc-card-link i {
+            font-size: 12px;
+            transition: transform 0.4s ease;
+        }
+
+        .lc-card-link:hover {
+            color: var(--lc-gold);
+            border-bottom-color: var(--lc-gold);
+        }
+
+        .lc-card-link:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ---- Featured Products ---- */
+        .lc-featured {
+            position: relative;
+            z-index: 1;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(201, 168, 76, 0.10);
+        }
+
+        .lc-featured-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .lc-featured-title {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 700;
+            color: var(--lc-black);
+        }
+
+        .lc-featured-title span {
+            color: var(--lc-gold);
+        }
+
+        .lc-featured-sub {
+            font-size: 15px;
+            color: var(--lc-gray);
+            font-weight: 300;
+            margin-top: 2px;
+        }
+
+        .lc-featured-view {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--lc-black);
+            transition: var(--lc-transition);
+            border-bottom: 2px solid var(--lc-gold);
+            padding-bottom: 4px;
+            font-family: inherit;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lc-featured-view i {
+            transition: transform 0.4s ease;
+        }
+
+        .lc-featured-view:hover {
+            color: var(--lc-gold);
+        }
+
+        .lc-featured-view:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ---- Product Grid ---- */
+        .lc-product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .lc-product {
+            background: var(--lc-white);
+            border-radius: var(--lc-radius-sm);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: var(--lc-transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lc-product:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        .lc-product-image {
+            position: relative;
+            padding-top: 100%;
+            background: var(--lc-off-white);
+            overflow: hidden;
+        }
+
+        .lc-product-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .lc-product:hover .lc-product-image img {
+            transform: scale(1.05);
+        }
+
+        .lc-product-wishlist {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(4px);
+            color: var(--lc-charcoal);
+            font-size: 14px;
+            transition: var(--lc-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            z-index: 2;
+            border: none;
+            cursor: pointer;
+        }
+
+        .lc-product-wishlist:hover {
+            background: var(--lc-gold);
+            color: var(--lc-white);
+            transform: scale(1.08);
+        }
+
+        .lc-product-wishlist.liked {
+            background: var(--lc-gold);
+            color: var(--lc-white);
+        }
+
+        .lc-product-wishlist.liked i {
+            font-weight: 900;
+        }
+
+        .lc-product-quick {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%) translateY(12px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            padding: 7px 18px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--lc-black);
+            transition: var(--lc-transition);
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+        .lc-product:hover .lc-product-quick {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .lc-product-quick:hover {
+            background: var(--lc-black);
+            color: var(--lc-white);
+        }
+
+        .lc-product-sale {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+            padding: 3px 12px;
+            background: var(--lc-gold);
+            color: var(--lc-white);
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(201, 168, 76, 0.25);
+        }
+
+        .lc-product-body {
+            padding: 14px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            flex: 1;
+        }
+
+        .lc-product-brand {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--lc-gray);
+        }
+
+        .lc-product-name {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--lc-black);
+            transition: var(--lc-transition);
+            line-height: 1.3;
+        }
+
+        .lc-product:hover .lc-product-name {
+            color: var(--lc-gold);
+        }
+
+        .lc-product-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 2px 0;
+        }
+
+        .lc-product-stars {
+            color: var(--lc-gold);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .lc-product-review {
+            font-size: 11px;
+            color: var(--lc-gray);
+        }
+
+        .lc-product-prices {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 2px 0 4px;
+            flex-wrap: wrap;
+        }
+
+        .lc-product-current {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--lc-black);
+        }
+
+        .lc-product-current.sale {
+            color: var(--lc-gold);
+        }
+
+        .lc-product-old {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--lc-gray);
+            text-decoration: line-through;
+        }
+
+        .lc-product-discount {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--lc-white);
+            background: var(--lc-gold);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+
+        .lc-product-add {
+            width: 100%;
+            padding: 10px 0;
+            margin-top: 4px;
+            border: none;
+            border-radius: 8px;
+            background: var(--lc-black);
+            color: var(--lc-white);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--lc-transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .lc-product-add:hover {
+            background: var(--lc-gold);
+            color: var(--lc-black);
+            box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25);
+        }
+
+        .lc-product-add i {
+            font-size: 12px;
+        }
+
+        /* ---- Promotional Banner ---- */
+        .lc-promo {
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            border-radius: var(--lc-radius);
+            overflow: hidden;
+            background: var(--lc-black);
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lc-promo-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .lc-promo-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.35) saturate(0.8);
+        }
+
+        .lc-promo-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.3) 60%, rgba(201, 168, 76, 0.08) 100%);
+            z-index: 1;
+        }
+
+        .lc-promo-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--lc-white);
+            padding: 40px 32px;
+            max-width: 680px;
+        }
+
+        .lc-promo-badge {
+            display: inline-block;
+            padding: 4px 20px;
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--lc-gold-light);
+            margin-bottom: 14px;
+        }
+
+        .lc-promo-title {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: clamp(28px, 3.8vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 8px;
+        }
+
+        .lc-promo-title span {
+            color: var(--lc-gold-light);
+        }
+
+        .lc-promo-desc {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .lc-promo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 40px;
+            background: var(--lc-gold);
+            color: var(--lc-black);
+            border: none;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: var(--lc-transition);
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .lc-promo-btn:hover {
+            background: var(--lc-gold-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(201, 168, 76, 0.3);
+        }
+
+        .lc-promo-btn i {
+            transition: transform 0.4s ease;
+        }
+
+        .lc-promo-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width: 1100px) {
+            .leather-collection {
+                padding: 60px 30px 40px;
+            }
+
+            .lc-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .lc-product-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            .leather-collection {
+                padding: 48px 20px 32px;
+            }
+
+            .lc-header {
+                margin-bottom: 40px;
+            }
+
+            .lc-title {
+                font-size: 32px;
+            }
+
+            .lc-subtitle {
+                font-size: 15px;
+                padding: 0 10px;
+            }
+
+            .lc-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+                margin-bottom: 48px;
+            }
+
+            .lc-card-body {
+                padding: 16px 16px 20px;
+            }
+
+            .lc-card-name {
+                font-size: 17px;
+            }
+
+            .lc-card-desc {
+                font-size: 13px;
+            }
+
+            .lc-featured {
+                padding-top: 40px;
+            }
+
+            .lc-featured-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 28px;
+            }
+
+            .lc-featured-title {
+                font-size: 28px;
+            }
+
+            .lc-product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .lc-product-name {
+                font-size: 14px;
+            }
+
+            .lc-product-current {
+                font-size: 16px;
+            }
+
+            .lc-promo {
+                min-height: 180px;
+                margin-top: 40px;
+            }
+
+            .lc-promo-title {
+                font-size: 26px;
+            }
+
+            .lc-promo-desc {
+                font-size: 14px;
+            }
+
+            .lc-promo-btn {
+                padding: 12px 32px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .leather-collection {
+                padding: 32px 14px 24px;
+            }
+
+            .lc-title {
+                font-size: 26px;
+            }
+
+            .lc-subtitle {
+                font-size: 14px;
+            }
+
+            .lc-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 36px;
+            }
+
+            .lc-card-image {
+                padding-bottom: 75%;
+            }
+
+            .lc-card-body {
+                padding: 14px 14px 18px;
+            }
+
+            .lc-card-name {
+                font-size: 16px;
+            }
+
+            .lc-featured-title {
+                font-size: 24px;
+            }
+
+            .lc-product-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .lc-product-body {
+                padding: 10px 10px 14px;
+            }
+
+            .lc-product-name {
+                font-size: 13px;
+            }
+
+            .lc-product-current {
+                font-size: 14px;
+            }
+
+            .lc-product-old {
+                font-size: 12px;
+            }
+
+            .lc-product-add {
+                font-size: 10px;
+                padding: 8px 0;
+            }
+
+            .lc-product-wishlist {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+                top: 6px;
+                right: 6px;
+            }
+
+            .lc-product-quick {
+                font-size: 10px;
+                padding: 5px 12px;
+            }
+
+            .lc-product-sale {
+                font-size: 8px;
+                padding: 2px 8px;
+                top: 6px;
+                left: 6px;
+            }
+
+            .lc-promo-content {
+                padding: 28px 20px;
+            }
+
+            .lc-promo-title {
+                font-size: 22px;
+            }
+
+            .lc-promo-desc {
+                font-size: 13px;
+            }
+
+            .lc-promo-btn {
+                padding: 10px 24px;
+                font-size: 12px;
+            }
+
+            .lc-badge {
+                font-size: 9px;
+                padding: 4px 14px;
+            }
+        }
+
+        /* ---- Scrollbar ---- */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--lc-off-white);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--lc-gold);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--lc-gold-dark);
+        }
+
+        /* ---- Reduced Motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+            .lc-bg-shape {
+                animation: none !important;
+            }
+            .lc-card,
+            .lc-product,
+            .lc-card-image img,
+            .lc-product-image img,
+            .lc-card-link i,
+            .lc-promo-btn i,
+            .lc-featured-view i {
+                transition: none !important;
+            }
+            .lc-card:hover {
+                transform: none !important;
+            }
+            .lc-product:hover {
+                transform: none !important;
+            }
+            .lc-product-quick {
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            .lc-product:hover .lc-product-quick {
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    PREMIUM LEATHER COLLECTION SECTION
+    ============================================================ -->
+    <section class="leather-collection">
+
+        <!-- Background Accents -->
+        <div class="lc-bg">
+            <div class="lc-bg-shape lc-bg-shape--1"></div>
+            <div class="lc-bg-shape lc-bg-shape--2"></div>
+            <div class="lc-bg-shape lc-bg-shape--3"></div>
+        </div>
+
+        <!-- ===== HEADER ===== -->
+        <div class="lc-header">
+            <div class="lc-badge">
+                <span class="lc-badge-icon">✦</span>
+                Handcrafted Excellence
+                <span class="lc-badge-line"></span>
+            </div>
+            <h2 class="lc-title">Premium <span>Leather</span> Collection</h2>
+            <p class="lc-subtitle">
+                Crafted from genuine leather for timeless elegance, unmatched comfort, and lasting durability.
+            </p>
+        </div>
+
+        <!-- ===== COLLECTION GRID ===== -->
+        <div class="lc-grid">
+
+            <!-- 1. Leather Formal Shoes -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80&auto=format&fit=crop" alt="Leather Formal Shoes" loading="lazy" />
+                    <span class="lc-card-badge">100% Genuine Leather</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Formal Shoes</h3>
+                    <p class="lc-card-desc">Polished perfection for the boardroom and beyond.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 2. Leather Loafers -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=600&q=80&auto=format&fit=crop" alt="Leather Loafers" loading="lazy" />
+                    <span class="lc-card-badge lc-card-badge--dark">Handcrafted</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Loafers</h3>
+                    <p class="lc-card-desc">Timeless slip-on elegance for every occasion.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 3. Leather Derby Shoes -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1610737245006-f5d7c3e5b6b3?w=600&q=80&auto=format&fit=crop" alt="Leather Derby Shoes" loading="lazy" />
+                    <span class="lc-card-badge">100% Genuine Leather</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Derby Shoes</h3>
+                    <p class="lc-card-desc">Open-lace sophistication with a modern edge.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 4. Leather Oxford Shoes -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=600&q=80&auto=format&fit=crop" alt="Leather Oxford Shoes" loading="lazy" />
+                    <span class="lc-card-badge lc-card-badge--dark">Handcrafted</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Oxford Shoes</h3>
+                    <p class="lc-card-desc">The quintessential classic for the discerning gentleman.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 5. Leather Chelsea Boots -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=600&q=80&auto=format&fit=crop" alt="Leather Chelsea Boots" loading="lazy" />
+                    <span class="lc-card-badge">100% Genuine Leather</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Chelsea Boots</h3>
+                    <p class="lc-card-desc">Effortless style with elastic side panels and sleek lines.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- 6. Leather Monk Strap Shoes -->
+            <div class="lc-card">
+                <div class="lc-card-image">
+                    <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80&auto=format&fit=crop&rot=90" alt="Leather Monk Strap Shoes" loading="lazy" />
+                    <span class="lc-card-badge lc-card-badge--dark">Handcrafted</span>
+                </div>
+                <div class="lc-card-body">
+                    <h3 class="lc-card-name">Leather Monk Strap</h3>
+                    <p class="lc-card-desc">Distinctive buckle detailing for a refined statement.</p>
+                    <button class="lc-card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== FEATURED PRODUCTS ===== -->
+        <div class="lc-featured">
+
+            <div class="lc-featured-header">
+                <div>
+                    <h3 class="lc-featured-title">Featured <span>Leather</span> Collection</h3>
+                    <p class="lc-featured-sub">Handpicked premium leather footwear for the discerning connoisseur.</p>
+                </div>
+                <button class="lc-featured-view">View All <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="lc-product-grid">
+
+                <!-- Product 1 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&h=400&fit=crop&crop=center&auto=format" alt="Heritage Oxford" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">New</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Oxford Leather</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(124)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current">PKR 24,999</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1600267185393-e158a98703de?w=400&h=400&fit=crop&crop=center&auto=format" alt="Classic Loafer" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">-20%</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Penny Loafer</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(89)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current sale">PKR 18,999</span>
+                            <span class="lc-product-old">PKR 23,999</span>
+                            <span class="lc-product-discount">-20%</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1610737245006-f5d7c3e5b6b3?w=400&h=400&fit=crop&crop=center&auto=format" alt="Derby Shoe" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Derby Leather</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(67)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current">PKR 22,499</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&h=400&fit=crop&crop=center&auto=format" alt="Oxford Shoe" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">New</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Oxford Cap Toe</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(45)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current">PKR 27,999</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=400&h=400&fit=crop&crop=center&auto=format" alt="Chelsea Boot" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">-15%</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Chelsea Boot</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(78)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current sale">PKR 29,999</span>
+                            <span class="lc-product-old">PKR 34,999</span>
+                            <span class="lc-product-discount">-15%</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&h=400&fit=crop&crop=center&auto=format&rot=90" alt="Monk Strap" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Monk Strap</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(56)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current">PKR 26,499</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center&auto=format" alt="Leather Sneaker" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">New</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Leather Sneaker</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(34)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current">PKR 19,999</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="lc-product">
+                    <div class="lc-product-image">
+                        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format" alt="Premium Loafer" loading="lazy" />
+                        <button class="lc-product-wishlist"><i class="fa-regular fa-heart"></i></button>
+                        <button class="lc-product-quick">Quick View</button>
+                        <span class="lc-product-sale">-25%</span>
+                    </div>
+                    <div class="lc-product-body">
+                        <span class="lc-product-brand">Heritage</span>
+                        <h4 class="lc-product-name">Premium Loafer</h4>
+                        <div class="lc-product-rating">
+                            <span class="lc-product-stars">★★★★★</span>
+                            <span class="lc-product-review">(92)</span>
+                        </div>
+                        <div class="lc-product-prices">
+                            <span class="lc-product-current sale">PKR 16,999</span>
+                            <span class="lc-product-old">PKR 22,999</span>
+                            <span class="lc-product-discount">-25%</span>
+                        </div>
+                        <button class="lc-product-add"><i class="fa-solid fa-bag-shopping"></i> Add to Cart</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== PROMOTIONAL BANNER ===== -->
+        <div class="lc-promo">
+            <div class="lc-promo-bg">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=1600&q=80&auto=format&fit=crop" alt="Luxury Leather Collection" loading="lazy" />
+            </div>
+            <div class="lc-promo-overlay"></div>
+            <div class="lc-promo-content">
+                <span class="lc-promo-badge">✦ Limited Time Offer</span>
+                <h3 class="lc-promo-title">Luxury Leather Collection – <span>Up to 30% Off</span></h3>
+                <p class="lc-promo-desc">Elevate your wardrobe with our finest handcrafted leather footwear — now at an exclusive discount.</p>
+                <button class="lc-promo-btn">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ============================================================
+            // 1. WISHLIST TOGGLE
+            // ============================================================
+            document.querySelectorAll('.lc-product-wishlist').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    this.classList.toggle('liked');
+                    const icon = this.querySelector('i');
+                    icon.className = this.classList.contains('liked') ? 'fa-solid fa-heart' :
+                        'fa-regular fa-heart';
+                });
+            });
+
+            // ============================================================
+            // 2. QUICK VIEW (demo)
+            // ============================================================
+            document.querySelectorAll('.lc-product-quick').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    alert('✨ Quick View — product details would appear in a modal.');
+                });
+            });
+
+            // ============================================================
+            // 3. ADD TO CART (demo)
+            // ============================================================
+            document.querySelectorAll('.lc-product-add').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fa-solid fa-check"></i> Added!';
+                    this.style.background = '#C9A84C';
+                    this.style.color = '#0a0a0a';
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.style.background = '';
+                        this.style.color = '';
+                    }, 2000);
+                });
+            });
+
+            // ============================================================
+            // 4. EXPLORE COLLECTION (demo)
+            // ============================================================
+            document.querySelectorAll('.lc-card-link').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const name = this.closest('.lc-card').querySelector('.lc-card-name')
+                        ?.textContent || 'Collection';
+                    alert(`✨ Exploring "${name}" — collection page would open.`);
+                });
+            });
+
+            // ============================================================
+            // 5. VIEW ALL (demo)
+            // ============================================================
+            document.querySelector('.lc-featured-view')?.addEventListener('click', function() {
+                alert('🛍️ View all leather products — full collection page would open.');
+            });
+
+            // ============================================================
+            // 6. PROMO BUTTON (demo)
+            // ============================================================
+            document.querySelector('.lc-promo-btn')?.addEventListener('click', function() {
+                alert('🛍️ Shop Now — navigating to the leather collection sale page.');
+            });
+
+            // ============================================================
+            // 7. CARD CLICK (demo)
+            // ============================================================
+            document.querySelectorAll('.lc-card').forEach((card) => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.closest('.lc-card-link')) return;
+                    const name = this.querySelector('.lc-card-name')?.textContent || 'Collection';
+                    alert(`✨ Exploring "${name}" — collection page would open.`);
+                });
+            });
+
+            console.log('👜 Premium Leather Collection section loaded.');
+            console.log('✨ Handcrafted with ❤️');
+
+        });
+    </script>
+
+</body>
+</html>
